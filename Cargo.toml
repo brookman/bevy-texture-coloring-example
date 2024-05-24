@@ -10,6 +10,12 @@ path = "src/main.rs"
 [workspace]
 resolver = "2" # Important! wgpu/Bevy needs this!
 
+[lints.clippy]
+enum_glob_use = "warn"
+pedantic = { level = "warn", priority = -1 }
+nursery =  { level = "warn", priority = -1 }
+unwrap_used = "warn"
+
 # Enable a small amount of optimization in debug mode
 [profile.dev]
 opt-level = 1

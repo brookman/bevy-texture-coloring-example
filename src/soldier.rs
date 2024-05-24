@@ -48,6 +48,7 @@ impl MaterialExtension for CustomMaterial {
     }
 }
 
+#[allow(clippy::needless_pass_by_value)]
 fn spawn(mut commands: Commands, asset_server: Res<AssetServer>) {
     const SCENE_TO_LOAD: &str = "character-soldier.glb#Scene0";
     const MATERIAL_TO_CUSTOMIZE: &str = "character-soldier.glb#Material0";
@@ -76,6 +77,7 @@ fn spawn(mut commands: Commands, asset_server: Res<AssetServer>) {
     });
 }
 
+#[allow(clippy::needless_pass_by_value)]
 fn customize_materials(
     mut commands: Commands,
     entities_to_customize: Query<(Entity, &CustomizeMaterial), ()>,
@@ -101,6 +103,7 @@ fn customize_materials(
     }
 }
 
+#[allow(clippy::needless_pass_by_value)]
 fn customize_color(
     ui_state: Res<ui::State>,
     mut custom_materials: ResMut<Assets<ExtendedMaterial<StandardMaterial, CustomMaterial>>>,
