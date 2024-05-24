@@ -80,13 +80,13 @@ fn spawn(mut commands: Commands, asset_server: Res<AssetServer>) {
 #[allow(clippy::needless_pass_by_value)]
 fn customize_materials(
     mut commands: Commands,
-    entities_to_customize: Query<(Entity, &CustomizeMaterial), ()>,
+    entities_to_customize: Query<(Entity, &CustomizeMaterial)>,
     standard_materials: Res<Assets<StandardMaterial>>,
     mut custom_materials: ResMut<Assets<ExtendedMaterial<StandardMaterial, CustomMaterial>>>,
 ) {
     for (entity, customize_material) in entities_to_customize.iter() {
-        let original_handle = customize_material.original_material.clone();
-        let mask_handle = customize_material.mask_handle.clone();
+        let original_handle = &customize_material.original_material;
+        let mask_handle = &customize_material.mask_handle;
 
         if let Some(original) = standard_materials.get(original_handle) {
             commands
@@ -94,7 +94,7 @@ fn customize_materials(
                 .insert(custom_materials.add(ExtendedMaterial {
                     base: original.clone(),
                     extension: CustomMaterial {
-                        mask: Some(mask_handle),
+                        mask: Some(mask_handle.clone()),
                         custom_color: Color::BLUE,
                     },
                 }))
