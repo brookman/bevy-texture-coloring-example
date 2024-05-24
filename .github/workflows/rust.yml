@@ -14,11 +14,11 @@ jobs:
     steps:
       # Setup
       - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: nightly
-          components: rustfmt, clippy
           target: wasm32-unknown-unknown
+          components: rustfmt, clippy
           
       # Dependencies
       - name: Install dependencies
