@@ -1,3 +1,9 @@
+<p align="center">
+<a href="https://github.com/brookman/bevy-texture-coloring-example/actions"><img src="https://github.com/brookman/bevy-texture-coloring-example/actions/workflows/rust.yml/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/brookman/bevy-texture-coloring-example"><img src="https://img.shields.io/github/stars/brookman/bevy-texture-coloring-example.svg?style=flat&logo=github&colorB=deeppink&label=stars" alt="Github Stars"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="MIT License"></a>
+</p>
+
 # Bevy Texture Coloring Example
 
 This example demonstrates how to customize an existing material loaded from a glTF scene in Bevy. It leverages the `bevy-scene-hook` crate to replace specific materials during the loading process. Please note that this might not be the most elegant solution.
