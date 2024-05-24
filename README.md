@@ -23,3 +23,6 @@ This solution involves three main components:
    - Updates the custom color in the material based on input from the UI.
 
 Feel free to provide any feedback or suggestions to improve this example further!
+
+## Attribution
+Thanks to [kenny.nl](https://kenney.nl/assets/mini-arena) for providing free game assets.
