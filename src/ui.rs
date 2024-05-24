@@ -34,7 +34,7 @@ fn update(mut contexts: EguiContexts, mut ui_state: ResMut<State>) {
     let egui_context = contexts.ctx_mut();
 
     let window = egui::Window::new("Config");
-    
+
     window.show(egui_context, |ui| {
         ui.vertical(|ui| {
             ui.label("Customize color:");
