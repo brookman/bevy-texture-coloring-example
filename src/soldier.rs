@@ -30,8 +30,6 @@ struct CustomizeMaterial {
 struct CustomMaterial {
     // We need to ensure that the bindings of the base material and the extension do not conflict,
     // so we start from binding slot 100, leaving slots 0-99 for the base material.
-    // #[uniform(100)]
-    // quantize_steps: u32,
     #[texture(100)]
     #[sampler(101)]
     pub mask: Option<Handle<Image>>,
