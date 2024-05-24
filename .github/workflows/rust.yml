@@ -17,7 +17,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
-          components: rustfmt, clippy, wasm-bindgen-cli, wasm-opt
+          components: rustfmt, clippy
           
       # Dependencies
       - name: Install dependencies
@@ -36,6 +36,8 @@ jobs:
       
       - name: Build Rust (WASM)
         run: |
+          cargo install wasm-bindgen-cli --vers 0.2.91
+          cargo install wasm-opt
           cargo build -r --target wasm32-unknown-unknown
           wasm-bindgen --no-typescript --out-dir ./target/wasm --target web ./target/wasm32-unknown-unknown/release/bevy-texture-coloring-example.wasm
           wasm-opt -Oz -o ./target/wasm/bevy-texture-coloring-example_bg.wasm ./target/wasm/bevy-texture-coloring-example_bg.wasm
