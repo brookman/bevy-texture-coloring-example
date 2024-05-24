@@ -21,7 +21,7 @@ jobs:
           
       # Dependencies
       - name: Install dependencies
-        run: sudo apt install libdbus-1-dev pkg-config libudev-dev
+        run: sudo apt install libdbus-1-dev pkg-config libudev-dev libasound2-dev
 
       # Rust
       - name: Check Rust format
