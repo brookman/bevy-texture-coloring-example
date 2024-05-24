@@ -13,7 +13,7 @@ fn spawn(mut commands: Commands) {
 
     commands.spawn(DirectionalLightBundle {
         directional_light: DirectionalLight {
-            illuminance: 5000.0,
+            illuminance: 7500.0,
             shadows_enabled: true,
             ..default()
         },
