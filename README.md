@@ -8,7 +8,7 @@
 
 This example demonstrates how to customize an existing material loaded from a glTF scene in Bevy. It leverages the `bevy-scene-hook` crate to replace specific materials during the loading process. Please note that this might not be the most elegant solution.
 
-[Go to the web/WASM demo! 🚀](https://brookman.github.io/bevy-texture-coloring-example/)
+🚀 [Go to the web/WASM demo!](https://brookman.github.io/bevy-texture-coloring-example/) 🚀
 
 ## Screenshot
 
