@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:,">
-    <title>aura_viewer</title>
+    <title>Bevy Texture Coloring Example</title>
 
     <style>
         body,
@@ -27,60 +27,89 @@
 
         #loading {
             font-family: Arial, Helvetica, sans-serif;
-            color: white;
+            color: #cccccc;
             text-align: center;
-        } 
+        }
+
+        .lds-dual-ring {
+            /* change color here */
+            color: #cccccc
+        }
+
+        .lds-dual-ring,
+        .lds-dual-ring:after {
+            box-sizing: border-box;
+        }
+
+        .lds-dual-ring {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6.4px solid currentColor;
+            border-color: currentColor transparent currentColor transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <p id="loading">Loading...</p>
+
+    <div id="loading">
+        <div class="lds-dual-ring"></div>
+        <p>Loading...</p>
+    </div>
+
     <script type="module">
         import init from "./bevy-texture-coloring-example.js";
 
-        window.addEventListener("dragover", function (e) {
-            e = e || event;
-            e.preventDefault();
-        }, false);
-        window.addEventListener("drop", function (e) {
-            e = e || event;
-            console.log("File(s) dropped");
-            if (e.dataTransfer.items) {
-                [...e.dataTransfer.items].forEach((item, i) => {
-                    if (item.kind === "file") {
-                        const file = item.getAsFile();
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            const array = new Uint8Array(event.target.result);
-                            // if (file.name.endsWith('.ply')) {
-                            //     console.log(load_ply(array));
-                            // } else if (file.name.endsWith('.gcloud')) {
-                            //     console.log(load_gcloud(array));
-                            // } else {
-                            //     console.log(load_model(array));
-                            // }
-                        };
-                        reader.readAsArrayBuffer(file);
-                    }
-                });
-            } else {
-                [...e.dataTransfer.files].forEach((file, i) => {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const array = new Uint8Array(event.target.result);
-                        // if (file.name.endsWith('.ply')) {
-                        //     console.log(load_ply(array));
-                        // } else if (file.name.endsWith('.gcloud')) {
-                        //     console.log(load_gcloud(array));
-                        // } else {
-                        //     console.log(load_model(array));
-                        // }
-                    };
-                    reader.readAsArrayBuffer(file);
-                });
-            }
-            e.preventDefault();
-        }, false);
+        // window.addEventListener("dragover", function (e) {
+            //     e = e || event;
+            //     e.preventDefault();
+            // }, false);
+            // window.addEventListener("drop", function (e) {
+            //     e = e || event;
+            //     console.log("File(s) dropped");
+            //     if (e.dataTransfer.items) {
+            //         [...e.dataTransfer.items].forEach((item, i) => {
+            //             if (item.kind === "file") {
+            //                 const file = item.getAsFile();
+            //                 const reader = new FileReader();
+            //                 reader.onload = (event) => {
+            //                     const array = new Uint8Array(event.target.result);
+            //                 };
+            //                 reader.readAsArrayBuffer(file);
+            //             }
+            //         });
+            //     } else {
+            //         [...e.dataTransfer.files].forEach((file, i) => {
+            //             const reader = new FileReader();
+            //             reader.onload = (event) => {
+            //                 const array = new Uint8Array(event.target.result);
+            //             };
+            //             reader.readAsArrayBuffer(file);
+            //         });
+            //     }
+            //     e.preventDefault();
+            // }, false);
 
         async function run() {
             await init();
