@@ -13,7 +13,7 @@ resolver = "2" # Important! wgpu/Bevy needs this!
 [lints.clippy]
 enum_glob_use = "warn"
 pedantic = { level = "warn", priority = -1 }
-nursery =  { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
 unwrap_used = "warn"
 
 # Enable a small amount of optimization in debug mode
@@ -30,3 +30,13 @@ bevy-inspector-egui = "0.24.0"
 bevy_egui = "0.27.0"
 bevy_panorbit_camera = { version = "0.18.1", features = ["bevy_egui"] }
 bevy-scene-hook = "10.0.0"
+
+[profile.release]
+strip = true
+
+# Optimize for binary size for WASM (build is slower)
+[profile.release-wasm]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
