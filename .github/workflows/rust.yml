@@ -24,12 +24,12 @@ jobs:
         run: sudo apt install libdbus-1-dev pkg-config libudev-dev libasound2-dev
 
       # Rust
-      # - name: Check Rust format
-      #   run: rustfmt --edition 2021 --check src/main.rs
-      # - name: Rust code analysis
-      #   run: cargo clippy -- -D warnings
-      # - name: Run Rust tests
-      #   run: cargo test
+      - name: Check Rust format
+        run: rustfmt --edition 2021 --check src/main.rs
+      - name: Rust code analysis
+        run: cargo clippy -- -D warnings
+      - name: Run Rust tests
+        run: cargo test
       
       # - name: Build (Linux)
       #   run: cargo build -r
